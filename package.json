@@ -15,11 +15,13 @@
   "bugs": {
     "url": "https://github.com/liushilive/gitbook-plugin-books/issues"
   },
-  "dependencies": {
-    "katex": ">=0.10.0-beta"
-  },
   "keywords": [
+    "prism",
+    "mermaid",
     "math",
     "latex"
-  ]
+  ],
+  "dependencies": {
+    "books-cli": "*"
+  }
 }

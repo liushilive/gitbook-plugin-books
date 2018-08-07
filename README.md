@@ -4,30 +4,35 @@
 
 本插件只在 Windows 系统下进行测试，Linux 等其他环境不保证问题的存在！！！
 
-本人环境【Windows 10 64bit，nodejs v8.11.3，gitbook 3】
+>本插件仅支持 html 文档生成
+
+本人环境【Windows 10 64bit，nodejs v8.11.3，gitbook 3】。
 
 ## 前置条件
 
-使用 `npm root -g`查看`npm`全局模块安装路径
+使用 `npm root -g`查看`npm`全局模块安装路径。
 
-新建`NODE_PATH`环境变量
+新建`NODE_PATH`环境变量。
 
 将路径加入到`NODE_PATH`环境变量中。
 
-全局安装相应模块
+全局安装相应模块。
 
 ```bash
-npm install -g gitbook
-npm install -g gitbook-cli
-
-npm install -g mermaid.cli
+npm install -g books-cli
 ```
 
-## 编辑 book.json:
+## 编辑 book.json
 
 ```json
 {
-    "plugins": ["books"]
+  "plugins": [
+    "-lunr",
+    "-search",
+    "-highlight",
+    "-sharing",
+    "books"
+  ]
 }
 ```
 
@@ -35,9 +40,7 @@ npm install -g mermaid.cli
 
 ## 数学公式使用
 
-支持 KaTeX 已支持的全部符号
-
-[KaTeX 使用说明](https://khan.github.io/KaTeX/docs/supported.html)
+支持 [KaTeX](https://khan.github.io/KaTeX/docs/supported.html) 已支持的全部符号。
 
 ```html
 内联数学公式：$$\int_{-\infty}^\infty g(x) dx$$
@@ -57,4 +60,44 @@ $$
    g & h & i
 \end{array}
 $$
+```
+
+## 流程图使用
+
+支持 [mermaid](https://mermaidjs.github.io/) 以支持的流程图。
+
+    ```mermaid
+    graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+    ```
+
+## 代码高亮支持
+
+采用 [prism](https://prismjs.com/) 支持所有官方支持语言。
+
+### 主题样式
+
+支持官方所有主题
+
+`prismjs/themes/prism-okaidia.css`
+
+`prismjs/themes/prism-solarizedlight.css`
+
+`prismjs/themes/prism-tomorrow.css`
+
+`prismjs/themes/prism-dark.css`
+
+`prismjs/themes/prism-coy.css`
+
+```json
+"pluginsConfig": {
+  "books": {
+    "css": [
+      "prismjs/themes/prism-okaidia.css"
+    ]
+  }
+}
 ```
