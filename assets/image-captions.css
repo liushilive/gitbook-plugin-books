@@ -1,6 +1,7 @@
 figure {
   margin: 1.5em 0px;
   padding:10px 0;
+  text-align: center;
 }
 
 figcaption {
@@ -9,12 +10,4 @@ figcaption {
   text-align: center;
   font-style: italic;
   line-height: 1.5em;
-}
-
-.left {
-  text-align: left;
-}
-
-.right {
-  text-align: right;
 }

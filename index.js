@@ -39,16 +39,22 @@ module.exports = {
 
         books.Tools.copy_assets(books.Katex.assets, outputDirectory);
         books.Tools.copy_assets(books.Prism.assets, outputDirectory);
+
+        return books.ImageCaptions.onInit(this);
       } catch (error) {
         console.error(error);
         throw error;
       }
-      return books.ImageCaptions.onInit(this);
     },
     page: function (page) {
-      page = books.ImageCaptions.onPage(this, page);
-      page = books.Prism.hooks_page(page);
-      return page;
+      try {
+        page = books.ImageCaptions.onPage(this, page);
+        page = books.Prism.hooks_page(page);
+        return page;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
     'page:before': function (page) {
       page = books.Mermaid.processMermaidBlockList(page);
