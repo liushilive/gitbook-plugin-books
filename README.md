@@ -82,20 +82,26 @@ $$
 
 支持官方所有主题
 
+`prismjs/themes/prism.css`
+
+`prismjs/themes/prism-coy.css`
+
+`prismjs/themes/prism-dark.css`
+
+`prismjs/themes/prism-funky.css`
+
 `prismjs/themes/prism-okaidia.css`
 
 `prismjs/themes/prism-solarizedlight.css`
 
 `prismjs/themes/prism-tomorrow.css`
 
-`prismjs/themes/prism-dark.css`
-
-`prismjs/themes/prism-coy.css`
+`prismjs/themes/prism-twilight.css`
 
 ```json
 "pluginsConfig": {
   "books": {
-    "css": [
+    "themes": [
       "prismjs/themes/prism-okaidia.css"
     ]
   }
