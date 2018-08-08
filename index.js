@@ -16,7 +16,8 @@ function getAssets() {
   ];
   var jsNames = [
     'splitter.js',
-    "toggle.js"
+    'toggle.js',
+    'GitHubButtons.js'
   ];
   cssNames = cssNames.concat(books.Katex.cssNames);
   cssNames = cssNames.concat(getConfig(this, 'themes', books.Prism.cssNames));

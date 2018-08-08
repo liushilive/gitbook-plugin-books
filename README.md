@@ -107,3 +107,12 @@ $$
   }
 }
 ```
+
+## 添加 github url 图标
+
+```json
+"pluginsConfig": {
+  "books": {
+    "url": "https://liushilive.github.io/"
+  }
+}
