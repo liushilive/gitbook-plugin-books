@@ -1,3 +1,16 @@
+.book .book-summary,
+.book .book-body,
+pre,
+code,
+pre tt  {
+  font-family: "PingFang SC", "Verdana", "Helvetica Neue", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", "sans-serif";
+}
+
+.markdown-section pre>code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 figure {
   margin: 1.5em 0px;
   padding:10px 0;
@@ -44,4 +57,28 @@ figcaption {
 
 .spoiler.hover {
 	background-color: white;
+}
+
+
+.book.color-theme-2 .panel {
+  background: #1A1A1A;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-width: 1px;
+}
+
+.book.color-theme-2 .panel-heading {
+  border-width: 0;
+}
+
+.book.color-theme-2 .panel-body {
+  background: #1A1A1A;
+}
+
+.book.color-theme-2 a.section {
+  border-color: #373b4e !important;
+}
+
+.atTitle {
+  display: flex;
 }

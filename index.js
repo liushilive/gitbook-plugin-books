@@ -11,13 +11,16 @@ function getConfig(context, type, defaultValue) {
 
 function getAssets() {
   var cssNames = [
-    'stype.css'
+    'stype.css',
+    'bootstrap.min.css'
   ];
   var jsNames = [
     'splitter.js',
     'toggle.js',
     'GitHubButtons.js',
-    'spoiler.js'
+    'spoiler.js',
+    'sectionx.js',
+    'bootstrap.min.js'
   ];
   cssNames = cssNames.concat(books.Katex.cssNames);
   cssNames = cssNames.concat(getConfig(this, 'themes', books.Prism.cssNames));
@@ -35,27 +38,17 @@ module.exports = {
   // Map of hooks
   hooks: {
     init: function () {
-      try {
-        var outputDirectory = path.join(this.output.root(), '/gitbook/gitbook-plugin-books');
+      var outputDirectory = path.join(this.output.root(), '/gitbook/gitbook-plugin-books');
 
-        books.Tools.copy_assets(books.Katex.assets, outputDirectory);
-        books.Tools.copy_assets(books.Prism.assets, outputDirectory);
+      books.Tools.copy_assets(books.Katex.assets, outputDirectory);
+      books.Tools.copy_assets(books.Prism.assets, outputDirectory);
 
-        return books.ImageCaptions.onInit(this);
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
+      return books.ImageCaptions.onInit(this);
     },
     page: function (page) {
-      try {
-        page = books.ImageCaptions.onPage(this, page);
-        page = books.Prism.hooks_page(page);
-        return page;
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
+      page = books.ImageCaptions.onPage(this, page);
+      page = books.Prism.hooks_page(page);
+      return page;
     },
     'page:before': function (page) {
       page = books.Mermaid.processMermaidBlockList(page);
@@ -73,6 +66,13 @@ module.exports = {
       process: function (block) {
         var body = block.body;
         return books.Mermaid.string2svgAsync(body);
+      }
+    },
+    sc: {
+      process: function (block) {
+        var title = block.kwargs.title || "";
+        var show = block.kwargs.show;
+        return books.sectionx.sectionx(block.body, title, show);
       }
     },
     code: function (block) {
