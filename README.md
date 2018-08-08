@@ -116,3 +116,12 @@ $$
     "url": "https://liushilive.github.io/"
   }
 }
+```
+
+## 鼠标悬浮可见
+
+用法：把要隐藏文本内容放在 `{%s%}` 和 `{%ends%}` 之间。
+
+```html
+{%s%}Hello World.{%ends%}
+```

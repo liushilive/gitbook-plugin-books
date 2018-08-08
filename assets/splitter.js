@@ -36,16 +36,14 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
     setTimeout(function () {
       var isGreaterThanEqualGitbookV2_5 = !Boolean($('.toggle-summary').length);
 
-      var $toggleSummary = isGreaterThanEqualGitbookV2_5
-        ? $('.fa.fa-align-justify').parent() : $('.toggle-summary');
+      var $toggleSummary = isGreaterThanEqualGitbookV2_5 ? $('.fa.fa-align-justify').parent() : $('.toggle-summary');
 
       $toggleSummary.on('click', function () {
 
         var summaryOffset = null;
         var bookBodyOffset = null;
 
-        var isOpen = isGreaterThanEqualGitbookV2_5
-          ? !gitbook.sidebar.isOpen() : $book.hasClass('with-summary');
+        var isOpen = isGreaterThanEqualGitbookV2_5 ? !gitbook.sidebar.isOpen() : $book.hasClass('with-summary');
 
         if (isOpen) {
           summaryOffset = -($summary.outerWidth());

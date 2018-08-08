@@ -11,13 +11,13 @@ function getConfig(context, type, defaultValue) {
 
 function getAssets() {
   var cssNames = [
-    'splitter.css',
-    'image-captions.css'
+    'stype.css'
   ];
   var jsNames = [
     'splitter.js',
     'toggle.js',
-    'GitHubButtons.js'
+    'GitHubButtons.js',
+    'spoiler.js'
   ];
   cssNames = cssNames.concat(books.Katex.cssNames);
   cssNames = cssNames.concat(getConfig(this, 'themes', books.Prism.cssNames));
@@ -79,6 +79,11 @@ module.exports = {
       var body = block.body;
       var lang = block.kwargs.language.toLowerCase();
       return books.Prism.code_highlighted(body, lang);
+    },
+    s: {
+      process: function (block) {
+        return '<span class="spoiler">' + block.body + '</span>';
+      }
     }
   },
 
