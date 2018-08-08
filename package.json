@@ -20,5 +20,19 @@
     "mermaid",
     "math",
     "latex"
-  ]
+  ],
+  "gitbook": {
+    "properties": {
+      "themes": {
+        "type": "string",
+        "default": "prismjs/themes/prism-okaidia.css",
+        "title": "代码高亮主题样式"
+      },
+      "url": {
+        "type": "string",
+        "default": null,
+        "title": "需要连接GitHub页面地址"
+      }
+    }
+  }
 }
