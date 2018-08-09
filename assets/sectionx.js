@@ -27,23 +27,8 @@ require(["gitbook", "jquery"], function (gitbook, $) {
   };
 
   gitbook.events.bind("page.change", function () {
-    $('sec').each(function () {
-      if ($(this).find('.panel').hasClass('hidden'))
-        $(this).find('.panel').removeClass('hidden').hide();
-      if ($(this).data('collapse') === true) {
-        $('#' + $(this).data('id')).collapse('hide');
-        $(this).find('.section.atTitle.btn').html('<span class="fa fa-angle-down"/>');
-      }
-    });
-
     $('.section').each(function () {
       clickAction($(this), $(this).attr('target'));
-      if (!$(this).hasClass('atTitle')) {
-        $(this).addClass('btn btn-info');
-        $(this).html($(this).attr('show') ?
-          ('<b>' + $(this).attr('show') + '</b><span class="fa fa-angle-down pull-left"/>') :
-          '<span class="fa fa-angle-down"/>');
-      }
     });
   });
 });
