@@ -140,3 +140,23 @@ $$
 
 * title：标题
 * show：是否初始隐藏
+
+## 导入外部文件
+
+`@import "你的文件"`
+
+* **支持的文件类型**
+  * `.jpeg(.jpg), .gif, .png, .apng, .svg, .bmp` 文件将会直接被当作 markdown 图片被引用。
+  * `.csv` 文件将会被转换成 markdown 表格。
+  * `.mermaid` 将会被 mermaid 渲染。
+  * `.dot` 文件将会被 viz.js (graphviz) 渲染。
+  * `.plantuml(.puml)` 文件将会被 PlantUML 渲染。
+  * `.html` 将会直接被引入。
+  * `.js` 将会被引用为 `<script src="你的 js 文件"></script>`。
+  * `.less` 和 `.css` 将会被引用为 `style`。目前 `less` 只支持本地文件。`.css` 文件将会被引用为 `<link rel="stylesheet" href="你的 css 文件">`。
+  * `markdown` 将会被分析处理然后被引用。
+  * 其他所有的文件都将被视为代码块。
+
+* **设置图片**
+
+  `@import "test.png" {width="300px" height="200px" title="图片的标题" alt="我的 alt"}`

@@ -38,47 +38,82 @@ module.exports = {
   // Map of hooks
   hooks: {
     init: function () {
-      var outputDirectory = path.join(this.output.root(), '/gitbook/gitbook-plugin-books');
+      // 1
+      try {
+        var outputDirectory = path.join(this.output.root(), '/gitbook/gitbook-plugin-books');
 
-      books.Tools.copy_assets(books.Katex.assets, outputDirectory);
-      books.Tools.copy_assets(books.Prism.assets, outputDirectory);
+        books.Tools.copy_assets(books.Katex.assets, outputDirectory);
+        books.Tools.copy_assets(books.Prism.assets, outputDirectory);
 
-      return books.ImageCaptions.onInit(this);
+        return books.ImageCaptions.onInit(this);
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
     page: function (page) {
-      page = books.ImageCaptions.onPage(this, page);
-      page = books.Prism.hooks_page(page);
-      return page;
+      // 4
+      try {
+        page = books.ImageCaptions.onPage(this, page);
+        page = books.Prism.hooks_page(page);
+        return page;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
     'page:before': function (page) {
-      page = books.Mermaid.processMermaidBlockList(page);
-      return page;
+      // 2
+      try {
+        page = books.file_imports.process(page);
+        page = books.Mermaid.processMermaidBlockList(page);
+        return page;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     }
   },
 
   // Map of new blocks
   blocks: {
+    // 3
     math: {
       shortcuts: books.Katex.shortcuts,
       process: books.Katex.process
     },
     mermaid: {
       process: function (block) {
-        var body = block.body;
-        return books.Mermaid.string2svgAsync(body);
+        try {
+          var body = block.body;
+          return books.Mermaid.string2svgAsync(body);
+        } catch (error) {
+          console.error(error);
+          throw error;
+        }
       }
     },
     sc: {
       process: function (block) {
-        var title = block.kwargs.title || "";
-        var show = block.kwargs.show;
-        return books.sectionx.sectionx(block.body, title, show);
+        try {
+          var title = block.kwargs.title || "";
+          var show = block.kwargs.show;
+          return books.sectionx.sectionx(block.body, title, show);
+        } catch (error) {
+          console.error(error);
+          throw error;
+        }
       }
     },
     code: function (block) {
-      var body = block.body;
-      var lang = block.kwargs.language.toLowerCase();
-      return books.Prism.code_highlighted(body, lang);
+      try {
+        var body = block.body;
+        var lang = block.kwargs.language;
+        return books.Prism.code_highlighted(body, lang);
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
     s: {
       process: function (block) {
