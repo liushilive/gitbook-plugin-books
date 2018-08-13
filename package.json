@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-books",
   "description": "综合性的一个插件",
   "main": "index.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "engines": {
     "gitbook": ">=3.0.0"
   },
