@@ -12,11 +12,11 @@ function ExpandableChapters() {
         .children('a, span')
         .append(
           $(TRIGGER_TEMPLATE)
-            .on('click', function (e) {
-              e.preventDefault();
-              e.stopPropagation();
-              toggle($(e.target).closest(CHAPTER));
-            })
+          .on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggle($(e.target).closest(CHAPTER));
+          })
         );
       // hacky solution to make spans be clickable when used in combination with "ungrey" plugin
       $(CHAPTER + ' > span')
@@ -79,7 +79,7 @@ function ExpandableChapters() {
 function GitHubButtons() {
   require(['gitbook'], function (gitbook) {
     gitbook.events.bind('start', function (e, config) {
-      var githubURL = config.books && config.books.url ? config.books.url : null;
+      var githubURL = config.books && config.books.github_url ? config.books.github_url : null;
       if (githubURL) {
         gitbook.toolbar.createButton({
           icon: 'fa fa-github',
@@ -137,8 +137,7 @@ function splitter() {
       return;
     }
 
-    gitbook.events.bind('start', function () {
-    });
+    gitbook.events.bind('start', function () {});
 
     gitbook.events.bind('page.change', function () {
       var KEY_SPLIT_STATE = 'gitbook_split';
@@ -215,7 +214,9 @@ function splitter() {
         event.stopPropagation();
         event.preventDefault();
         $summary.outerWidth(event.pageX + grabPointWidth);
-        $bookBody.offset({ left: event.pageX + grabPointWidth });
+        $bookBody.offset({
+          left: event.pageX + grabPointWidth
+        });
       });
 
       function getSplitState() {
@@ -237,10 +238,18 @@ function splitter() {
 
       function setSplitState(summaryWidth, summaryOffset, bookBodyOffset) {
         $summary.outerWidth(summaryWidth);
-        $summary.offset({ left: summaryOffset });
-        $bookBody.offset({ left: bookBodyOffset });
-        $summary.css({ position: 'absolute' });
-        $bookBody.css({ position: 'absolute' });
+        $summary.offset({
+          left: summaryOffset
+        });
+        $bookBody.offset({
+          left: bookBodyOffset
+        });
+        $summary.css({
+          position: 'absolute'
+        });
+        $bookBody.css({
+          position: 'absolute'
+        });
       }
     });
   });
@@ -290,11 +299,11 @@ function toggle() {
       } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
         var textarea = document.createElement("textarea");
         textarea.textContent = text;
-        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+        textarea.style.position = "fixed"; // Prevent scrolling to bottom of page in MS Edge.
         document.body.appendChild(textarea);
         textarea.select();
         try {
-          return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+          return document.execCommand("copy"); // Security exception may be thrown by some browsers.
         } catch (ex) {
           console.warn("复制到剪贴板失败。", ex);
           return false;
@@ -306,8 +315,7 @@ function toggle() {
 
     function expand(chapter) {
       chapter.show();
-      if (chapter.parent().attr('class') != 'summary' && chapter.parent().attr('class') != 'book-summary' && chapter.length != 0
-      ) {
+      if (chapter.parent().attr('class') != 'summary' && chapter.parent().attr('class') != 'book-summary' && chapter.length != 0) {
         expand(chapter.parent());
       }
     }
@@ -317,7 +325,18 @@ function toggle() {
         $(this).css("position", "relative");
 
         var $copyCodeButton = $("<button class='copy-code-button'>Copy</button>");
-        $copyCodeButton.css({ "position": "absolute", "top": "5px", "right": "5px", "padding": "3px", "background-color": "#313E4E", "color": "white", "border-radius": "5px", "-moz-border-radius": "5px", "-webkit-border-radius": "5px", "border": "2px solid #CCCCCC" });
+        $copyCodeButton.css({
+          "position": "absolute",
+          "top": "5px",
+          "right": "5px",
+          "padding": "3px",
+          "background-color": "#313E4E",
+          "color": "white",
+          "border-radius": "5px",
+          "-moz-border-radius": "5px",
+          "-webkit-border-radius": "5px",
+          "border": "2px solid #CCCCCC"
+        });
         $copyCodeButton.click(function () {
           var $codeContainer = $(this).siblings("code");
           if ($codeContainer) {
@@ -590,10 +609,14 @@ function search() {
       var hash;
 
       if (re.test(url)) {
-        if (typeof value !== 'undefined' && value !== null) { return url.replace(re, '$1' + key + '=' + value + '$2$3'); } else {
+        if (typeof value !== 'undefined' && value !== null) {
+          return url.replace(re, '$1' + key + '=' + value + '$2$3');
+        } else {
           hash = url.split('#');
           url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
-          if (typeof hash[1] !== 'undefined' && hash[1] !== null) { url += '#' + hash[1]; }
+          if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
+            url += '#' + hash[1];
+          }
           return url;
         }
       } else {
@@ -601,9 +624,13 @@ function search() {
           var separator = url.indexOf('?') !== -1 ? '&' : '?';
           hash = url.split('#');
           url = hash[0] + separator + key + '=' + value;
-          if (typeof hash[1] !== 'undefined' && hash[1] !== null) { url += '#' + hash[1]; }
+          if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
+            url += '#' + hash[1];
+          }
           return urll;
-        } else { return url; }
+        } else {
+          return url;
+        }
       }
     }
     window.addEventListener('click', function (e) {

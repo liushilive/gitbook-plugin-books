@@ -20,7 +20,7 @@ function getAssets() {
     'main.min.js'
   ];
   cssNames = cssNames.concat(books.Katex.cssNames);
-  cssNames = cssNames.concat(getConfig(this, 'themes', books.Prism.cssNames));
+  cssNames = cssNames.concat(getConfig(this, 'prism_themes', books.Prism.cssNames));
 
   return {
     assets: './assets',
@@ -42,7 +42,6 @@ module.exports = {
 
         books.Tools.copy_assets(books.Katex.assets, outputDirectory);
         books.Tools.copy_assets(books.Prism.assets, outputDirectory);
-
         return books.ImageCaptions.onInit(this);
       } catch (error) {
         console.error(error);
@@ -56,6 +55,7 @@ module.exports = {
         page = books.Prism.hooks_page(page);
         page = books.page_footer_copyright(this, page);
         page = books.search_plus.hooks_page(this, page);
+        page = books.anchor_navigation_ex.hooks_page(page);
         return page;
       } catch (error) {
         console.error(error);
@@ -74,7 +74,12 @@ module.exports = {
       }
     },
     'finish': function () {
-      return books.search_plus.hooks_finish(this);
+      try {
+        return books.search_plus.hooks_finish(this);
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     }
   },
 

@@ -101,7 +101,7 @@ $$
 ```json
 "pluginsConfig": {
   "books": {
-    "themes": [
+    "prism_themes": [
       "prismjs/themes/prism-okaidia.css"
     ]
   }
@@ -113,7 +113,7 @@ $$
 ```json
 "pluginsConfig": {
   "books": {
-    "url": "https://liushilive.github.io/"
+    "github_url": "https://liushilive.github.io/"
   }
 }
 ```
