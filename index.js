@@ -11,16 +11,13 @@ function getConfig(context, type, defaultValue) {
 
 function getAssets() {
   var cssNames = [
-    'stype.css',
-    'bootstrap.min.css'
+    'bootstrap.min.css',
+    'stype.min.css'
   ];
   var jsNames = [
-    'splitter.js',
-    'toggle.js',
-    'GitHubButtons.js',
-    'spoiler.js',
-    'sectionx.js',
-    'bootstrap.min.js'
+    'bootstrap.min.js',
+    'jquery.mark.js',
+    'main.min.js'
   ];
   cssNames = cssNames.concat(books.Katex.cssNames);
   cssNames = cssNames.concat(getConfig(this, 'themes', books.Prism.cssNames));
@@ -33,7 +30,8 @@ function getAssets() {
 }
 
 module.exports = {
-  book: getAssets,
+  // book: getAssets,
+  website: getAssets,
 
   // Map of hooks
   hooks: {
@@ -56,6 +54,8 @@ module.exports = {
       try {
         page = books.ImageCaptions.onPage(this, page);
         page = books.Prism.hooks_page(page);
+        page = books.page_footer_copyright(this, page);
+        page = books.search_plus.hooks_page(this, page);
         return page;
       } catch (error) {
         console.error(error);
@@ -72,6 +72,9 @@ module.exports = {
         console.error(error);
         throw error;
       }
+    },
+    'finish': function () {
+      return books.search_plus.hooks_finish(this);
     }
   },
 
