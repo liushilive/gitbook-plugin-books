@@ -56,6 +56,7 @@ module.exports = {
         page = books.page_footer_copyright(this, page);
         page = books.search_plus.hooks_page(this, page);
         page = books.anchor_navigation_ex.hooks_page(page);
+        page = books.sectionx.hooks_page(page);
         return page;
       } catch (error) {
         console.error(error);
@@ -86,6 +87,36 @@ module.exports = {
   // Map of new blocks
   blocks: {
     // 3
+    math: {
+      shortcuts: books.Katex.shortcuts,
+      process: books.Katex.process
+    },
+    mermaid: {
+      process: function (block) {
+        try {
+          var body = block.body;
+          return books.Mermaid.string2svgAsync(body);
+        } catch (error) {
+          console.error(error);
+          throw error;
+        }
+      }
+    },
+    code: function (block) {
+      try {
+        var body = block.body;
+        var lang = block.kwargs.language;
+        return books.Prism.code_highlighted(body, lang);
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    },
+    s: {
+      process: function (block) {
+        return '<span class="spoiler">' + block.body + '</span>';
+      }
+    }
   },
 
   // Map of new filters

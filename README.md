@@ -134,16 +134,24 @@ $$
 
 ## 点击隐藏或显示片段
 
-可以使用标签定义一个新的片段：
+可以使用标签定义一个新的片段：（默认隐藏）
 
 ```html
-{%sc title="点我看答案",show=true %}
-我默认是显示的
-{%endsc%}
 
-{%sc title="点我看答案",show=false %}
-我默认是隐藏的
-{%endsc%}
+## 答案
+
+<!--sec data-title="点我隐藏答案" data-show=true ces-->
+B
+<!--endsec-->
+
+<!--sec data-title="点我看分析" data-id="section2" data-show=false ces-->
+CPU
+<!--endsec-->
+
+<!--sec data-title="点我看分析" ces-->
+C
+<!--endsec-->
+
 ```
 
 本标签包含以下参数：
