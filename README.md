@@ -26,19 +26,23 @@ npm install -g books-cli
 
 ```json
 {
+  "author": "刘士",
   "plugins": [
     "-lunr",
     "-search",
     "-highlight",
     "-sharing",
-    "books",
-    "books",
-    "books-math",
-    "books-sc",
-    "books-mermaid",
-    "books-code",
-    "books-s"
-  ]
+    "books"
+  ],
+  "pluginsConfig": {
+    "books": {
+      "prism_themes": "prismjs/themes/prism-okaidia.css",
+      "github_url": "https://liushilive.github.io/"
+    },
+    "theme-default": {
+      "showLevel": true
+    }
+  }
 }
 ```
 

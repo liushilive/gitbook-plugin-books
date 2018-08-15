@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-books",
   "description": "综合性的一个插件",
   "main": "index.js",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "engines": {
     "gitbook": ">=3.0.0"
   },
@@ -19,7 +19,10 @@
     "prism",
     "mermaid",
     "math",
-    "latex"
+    "latex",
+    "books",
+    "gitbook",
+    "code"
   ],
   "gitbook": {
     "properties": {
