@@ -31,7 +31,13 @@ npm install -g books-cli
     "-search",
     "-highlight",
     "-sharing",
-    "books"
+    "books",
+    "books",
+    "books-math",
+    "books-sc",
+    "books-mermaid",
+    "books-code",
+    "books-s"
   ]
 }
 ```

@@ -86,48 +86,6 @@ module.exports = {
   // Map of new blocks
   blocks: {
     // 3
-    math: {
-      shortcuts: books.Katex.shortcuts,
-      process: books.Katex.process
-    },
-    mermaid: {
-      process: function (block) {
-        try {
-          var body = block.body;
-          return books.Mermaid.string2svgAsync(body);
-        } catch (error) {
-          console.error(error);
-          throw error;
-        }
-      }
-    },
-    sc: {
-      process: function (block) {
-        try {
-          var title = block.kwargs.title || "";
-          var show = block.kwargs.show;
-          return books.sectionx.sectionx(block.body, title, show);
-        } catch (error) {
-          console.error(error);
-          throw error;
-        }
-      }
-    },
-    code: function (block) {
-      try {
-        var body = block.body;
-        var lang = block.kwargs.language;
-        return books.Prism.code_highlighted(body, lang);
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
-    },
-    s: {
-      process: function (block) {
-        return '<span class="spoiler">' + block.body + '</span>';
-      }
-    }
   },
 
   // Map of new filters

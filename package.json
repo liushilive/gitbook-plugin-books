@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-books",
   "description": "综合性的一个插件",
   "main": "index.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "engines": {
     "gitbook": ">=3.0.0"
   },
@@ -34,6 +34,5 @@
         "title": "需要连接GitHub页面地址"
       }
     }
-  },
-  "dependencies": {}
+  }
 }
