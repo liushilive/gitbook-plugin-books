@@ -12,12 +12,14 @@ function getConfig(context, type, defaultValue) {
 function getAssets() {
   var cssNames = [
     'bootstrap.min.css',
-    'stype.min.css'
+    'stype.min.css',
+    'lightbox.min.css'
   ];
   var jsNames = [
-    'bootstrap.min.js',
     'jquery.mark.js',
-    'main.min.js'
+    'bootstrap.min.js',
+    'main.min.js',
+    'lightbox.min.js'
   ];
   cssNames = cssNames.concat(books.Katex.cssNames);
   cssNames = cssNames.concat(getConfig(this, 'prism_themes', books.Prism.cssNames));
