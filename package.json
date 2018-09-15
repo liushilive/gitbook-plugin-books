@@ -1,41 +1,41 @@
 {
-  "name": "gitbook-plugin-books",
-  "description": "综合性的一个插件",
-  "main": "index.js",
-  "version": "1.0.9",
-  "engines": {
-    "gitbook": ">=3.0.0"
-  },
-  "homepage": "https://github.com/liushilive/gitbook-plugin-books",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/liushilive/gitbook-plugin-books.git"
-  },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/liushilive/gitbook-plugin-books/issues"
-  },
-  "keywords": [
-    "prism",
-    "mermaid",
-    "math",
-    "latex",
-    "books",
-    "gitbook",
-    "code"
-  ],
-  "gitbook": {
-    "properties": {
-      "prism_themes": {
-        "type": "string",
-        "default": "prismjs/themes/prism-okaidia.css",
-        "title": "代码高亮主题样式"
-      },
-      "github_url": {
-        "type": "string",
-        "default": null,
-        "title": "需要连接GitHub页面地址"
-      }
+    "name": "gitbook-plugin-books",
+    "description": "综合性的一个插件",
+    "main": "index.js",
+    "version": "1.0.10",
+    "engines": {
+        "gitbook": ">=3.0.0"
+    },
+    "homepage": "https://github.com/liushilive/gitbook-plugin-books",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/liushilive/gitbook-plugin-books.git"
+    },
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/liushilive/gitbook-plugin-books/issues"
+    },
+    "keywords": [
+        "prism",
+        "mermaid",
+        "math",
+        "latex",
+        "books",
+        "gitbook",
+        "code"
+    ],
+    "gitbook": {
+        "properties": {
+            "prism_themes": {
+                "type": "string",
+                "default": "prismjs/themes/prism-okaidia.css",
+                "title": "代码高亮主题样式"
+            },
+            "github_url": {
+                "type": "string",
+                "default": null,
+                "title": "需要连接GitHub页面地址"
+            }
+        }
     }
-  }
 }

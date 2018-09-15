@@ -1,5 +1,8 @@
 # 为了节约空间而写的一个插件
 
+![npm](https://img.shields.io/npm/v/gitbook-plugin-books.svg)
+![npm](https://img.shields.io/npm/dt/gitbook-plugin-books.svg)
+
 由于本人经常性的写一些文档，现有的很多插件版本各方面存在问题，甚至还有一些作者已经放弃维护了，所以决定自己写一个综合性的插件用来满足个人需求。
 
 本插件只在 Windows 系统下进行测试，Linux 等其他环境不保证问题的存在！！！
