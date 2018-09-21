@@ -50,100 +50,120 @@ npm install -g books-cli
 
 ## 数学公式使用
 
-支持 [KaTeX](https://khan.github.io/KaTeX/docs/supported.html) 已支持的全部符号。
+>支持 [KaTeX](https://khan.github.io/KaTeX/docs/supported.html) 已支持的全部符号。
 
-```html
-内联数学公式：$$\int_{-\infty}^\infty g(x) dx$$
+* 内联数学公式：
 
-$$\fcolorbox{red}{aqua}{A}$$
+      $$\int_{-\infty}^\infty g(x) dx$$
 
-$$\textcolor{#228B22}{F=ma}$$
+      $$\fcolorbox{red}{aqua}{A}$$
 
-块级数学公式:
+      $$\textcolor{#228B22}{F=ma}$$
 
-$$
-\def\arraystretch{1.5}
-\begin{array}{c|c:c}
-   a & b & c \\ \hline
-   d & e & f \\
-   \hdashline
-   g & h & i
-\end{array}
-$$
-```
+* 块级数学公式：
+
+      $$
+      \def\arraystretch{1.5}
+      \begin{array}{c|c:c}
+        a & b & c \\ \hline
+        d & e & f \\
+        \hdashline
+        g & h & i
+      \end{array}
+      $$
 
 ## 流程图使用
 
-支持 [mermaid](https://mermaidjs.github.io/) 以支持的流程图。
+* 支持 [mermaid](https://mermaidjs.github.io/) 以支持的流程图。
 
-    ```mermaid
-    graph TD;
-      A-->B;
-      A-->C;
-      B-->D;
-      C-->D;
-    ```
+      ```mermaid
+      graph TD;
+        A-->B;
+        A-->C;
+        B-->D;
+        C-->D;
+      ```
+
+* 支持 [PlantUML](http://plantuml.com/) 以支持的流程图。
+
+  >`@startuml`与`@enduml` 如果存在，将采用默认样式。
+  >
+  >否则采用 18 号字体，除非需要采用个性化配置，否则不加。
+
+      ```puml
+      @startuml
+
+      Class Stage
+      Class Timeout {
+        +constructor:function(cfg)
+        +timeout:function(ctx)
+        +overdue:function(ctx)
+        +stage: Stage
+      }
+      Stage <|-- Timeout
+
+      @enduml
+      ```
 
 ## 代码高亮支持
 
-采用 [prism](https://prismjs.com/) 支持所有官方支持语言。
+>采用 [prism](https://prismjs.com/) 支持所有官方支持语言。
 
 ### 主题样式
 
-支持官方所有主题
+* 支持官方所有主题
 
-`prismjs/themes/prism.css`
+      prismjs/themes/prism.css
 
-`prismjs/themes/prism-coy.css`
+      prismjs/themes/prism-coy.css
 
-`prismjs/themes/prism-dark.css`
+      prismjs/themes/prism-dark.css
 
-`prismjs/themes/prism-funky.css`
+      prismjs/themes/prism-funky.css
 
-`prismjs/themes/prism-okaidia.css`
+      prismjs/themes/prism-okaidia.css
 
-`prismjs/themes/prism-solarizedlight.css`
+      prismjs/themes/prism-solarizedlight.css
 
-`prismjs/themes/prism-tomorrow.css`
+      prismjs/themes/prism-tomorrow.css
 
-`prismjs/themes/prism-twilight.css`
+      prismjs/themes/prism-twilight.css
 
-```json
-"pluginsConfig": {
-  "books": {
-    "prism_themes": [
-      "prismjs/themes/prism-okaidia.css"
-    ]
+* 配置
+
+  ```json
+  "pluginsConfig": {
+    "books": {
+      "prism_themes": [
+        "prismjs/themes/prism-okaidia.css"
+      ]
+    }
   }
-}
-```
+  ```
 
 ## 添加 github url 图标
 
-```json
-"pluginsConfig": {
-  "books": {
-    "github_url": "https://liushilive.github.io/"
+* 配置
+
+  ```json
+  "pluginsConfig": {
+    "books": {
+      "github_url": "https://liushilive.github.io/"
+    }
   }
-}
-```
+  ```
 
 ## 鼠标悬浮可见
 
-用法：把要隐藏文本内容放在 `{%s%}` 和 `{%ends%}` 之间。
+>用法：把要隐藏文本内容放在 `{%s%}` 和 `{%ends%}` 之间。
 
-```html
-{%s%}Hello World.{%ends%}
-```
+    {%s%}Hello World.{%ends%}
 
 ## 点击隐藏或显示片段
 
-可以使用标签定义一个新的片段：（默认隐藏）
+>可以使用标签定义一个新的片段：（默认隐藏）
 
 ```html
-
-## 答案
-
 <!--sec data-title="点我隐藏答案" data-show=true ces-->
 B
 <!--endsec-->
@@ -155,10 +175,9 @@ CPU
 <!--sec data-title="点我看分析" ces-->
 C
 <!--endsec-->
-
 ```
 
-本标签包含以下参数：
+>本标签包含以下参数：
 
 * title：标题
 * show：是否初始隐藏
@@ -169,4 +188,4 @@ C
 
 `@import "你的代码文件"`
 
-如果没有指明相关语言，将默认根据文件后缀推断语言。
+>如果没有指明相关语言，将默认根据文件后缀推断语言。

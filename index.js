@@ -70,6 +70,7 @@ module.exports = {
             try {
                 page = books.file_imports.process(page);
                 page = books.Mermaid.processMermaidBlockList(page);
+                page = books.PlantUML.processPumlBlockList(page);
                 return page;
             } catch (error) {
                 console.error(error);
@@ -98,6 +99,17 @@ module.exports = {
                 try {
                     var body = block.body;
                     return books.Mermaid.string2svgAsync(body);
+                } catch (error) {
+                    console.error(error);
+                    throw error;
+                }
+            }
+        },
+        puml: {
+            process: function (block) {
+                try {
+                    var body = block.body;
+                    return books.PlantUML.string2svgAsync(body);
                 } catch (error) {
                     console.error(error);
                     throw error;
