@@ -1,3 +1,6 @@
+/**
+ * 章节扩展
+ */
 function ExpandableChapters() {
     require(['gitbook', 'jQuery'], function (gitbook, $) {
         var TOGGLE_CLASSNAME = 'expanded',
@@ -6,7 +9,7 @@ function ExpandableChapters() {
             TRIGGER_TEMPLATE = '<i class="exc-trigger fa"></i>',
             LS_NAMESPACE = 'expChapters';
         var init = function () {
-            // adding the trigger element to each ARTICLES parent and binding the event
+            // 将触发器元素添加到每个ARTICLES父元素并绑定事件
             $(ARTICLES)
                 .parent(CHAPTER)
                 .children('a, span')
@@ -18,7 +21,7 @@ function ExpandableChapters() {
                         toggle($(e.target).closest(CHAPTER));
                     })
                 );
-            // hacky solution to make spans be clickable when used in combination with "ungrey" plugin
+            // hacky解决方案，使跨可点击时，结合使用“ungrey”插件
             $(CHAPTER + ' > span')
                 .on('click', function (e) {
                     e.preventDefault();
@@ -26,12 +29,10 @@ function ExpandableChapters() {
                     toggle($(e.target).closest(CHAPTER));
                 });
             expand(lsItem());
-            //expand current selected chapter with it's parents
+            // 展开当前选定的章节与它的父母
             var activeChapter = $(CHAPTER + '.active');
             expand(activeChapter);
             expand(activeChapter.parents(CHAPTER));
-
-
         };
         var toggle = function ($chapter) {
             if ($chapter.hasClass('expanded')) {
@@ -76,6 +77,9 @@ function ExpandableChapters() {
     });
 }
 
+/**
+ * Github 按钮
+ */
 function GitHubButtons() {
     require(['gitbook'], function (gitbook) {
         gitbook.events.bind('start', function (e, config) {
@@ -94,6 +98,9 @@ function GitHubButtons() {
     });
 }
 
+/**
+ * 隐藏答案分块
+ */
 function sectionx() {
     require(["gitbook", "jquery"], function (gitbook, $) {
 
@@ -131,6 +138,9 @@ function sectionx() {
     });
 }
 
+/**
+ * 左侧分离
+ */
 function splitter() {
     require(['gitbook', 'jQuery'], function (gitbook, $) {
         if ($(window).width() <= 600) {
@@ -255,10 +265,12 @@ function splitter() {
     });
 }
 
+/**
+ * 划过显示
+ */
 function spoiler() {
     require(["gitbook", "jquery"], function (gitbook, $) {
         gitbook.events.bind("page.change", function () {
-
             $('.spoiler').hover(function () {
                 $(this).addClass('hover');
             }, function () {
@@ -269,7 +281,10 @@ function spoiler() {
     });
 }
 
-function toggle() {
+/**
+ * 复制代码
+ */
+function copyCode() {
     require(["gitbook", "jQuery"], function (gitbook, $) {
         function selectElementText(el) {
             var range = document.createRange();
@@ -366,6 +381,9 @@ function toggle() {
     });
 }
 
+/**
+ * 搜索
+ */
 function search() {
     require([
         'gitbook',
@@ -648,5 +666,5 @@ GitHubButtons();
 sectionx();
 splitter();
 spoiler();
-toggle();
+copyCode();
 search();
