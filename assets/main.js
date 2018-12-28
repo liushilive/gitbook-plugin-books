@@ -199,6 +199,10 @@ function splitter() {
                     setSplitState($summary.outerWidth(), summaryOffset, bookBodyOffset);
                     saveSplitState($summary.outerWidth(), summaryOffset, bookBodyOffset);
                 });
+
+                $('.on-toolbar-action').on('click', function () {
+                    $('.fa.fa-align-justify').parent()[0].click();
+                });
             }, 1);
 
             $divider.on('mousedown', function (event) {
