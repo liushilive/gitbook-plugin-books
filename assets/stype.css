@@ -59,6 +59,13 @@ figcaption {
     background-color: white;
 }
 
+.copy-code-button:hover {
+    opacity: 1;
+}
+
+.copy-code-button {
+    opacity: 0.3;
+}
 
 .book.color-theme-2 .panel {
     background: #1A1A1A;
@@ -198,6 +205,11 @@ figcaption {
     max-height: 70%;
     overflow-y: auto;
     overflow-x: hidden;
+    opacity: 0.3;
+}
+
+#anchor-navigation-ex-navbar:hover {
+    opacity: 1;
 }
 
 #anchor-navigation-ex-navbar ul {
@@ -207,6 +219,7 @@ figcaption {
     padding-left: 10px;
     list-style-type: none;
 }
+
 
 #anchor-navigation-ex-navbar:hover ul {
     display: block;
@@ -269,6 +282,11 @@ figcaption {
     font-size: 12px;
     padding: 5px 10px;
     color: #364149;
+    opacity: 0.3;
+}
+
+#anchorNavigationExGoTop:hover {
+    opacity: 1;
 }
 
 /*对应官网皮肤主题颜色*/
