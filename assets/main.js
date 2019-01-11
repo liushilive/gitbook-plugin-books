@@ -203,6 +203,21 @@ function splitter() {
                 $('.on-toolbar-action').on('click', function () {
                     $('.fa.fa-align-justify').parent()[0].click();
                 });
+
+                function fixationTopHight() {
+                    var h = window.innerHeight || document.body.clientHeight || document.documentElement.clientHeight;
+                    $(".divider-content-summary").css({
+                        top: ($('.book-summary').scrollTop()),
+                        hight: h
+                    });
+                }
+                
+                $('.book-summary').scroll(
+                    function(){fixationTopHight()}
+                );
+                window.onscroll = fixationTopHight;
+                window.onresize = fixationTopHight;
+
             }, 1);
 
             $divider.on('mousedown', function (event) {
