@@ -22,6 +22,13 @@
 npm install -g books-cli
 ```
 
+>国内用户请使用`cnpm`安装
+
+```bash
+npm install -g cnpm
+cnpm install -g books-cli
+```
+
 ## 编辑 book.json
 
 ```json
