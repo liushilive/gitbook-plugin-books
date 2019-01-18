@@ -95,6 +95,8 @@ cnpm install -g books-cli
 
 * 支持 [PlantUML](http://plantuml.com/) 以支持的流程图。
 
+  需要安装 [Graphviz](http://www.graphviz.org/) 以生成所有图表类型
+
   >`@startuml`与`@enduml` 如果存在，将采用默认样式。
   >
   >否则采用 18 号字体，除非需要采用个性化配置，否则不加。
