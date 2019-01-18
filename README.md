@@ -29,6 +29,8 @@ npm install -g cnpm
 cnpm install -g books-cli
 ```
 
+>请时刻关注 `books-cli` 的升级哦![npm](https://img.shields.io/npm/v/books-cli.svg)
+
 ## 编辑 book.json
 
 ```json

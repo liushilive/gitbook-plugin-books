@@ -2,7 +2,7 @@
     "name": "gitbook-plugin-books",
     "description": "综合性的一个插件",
     "main": "index.js",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "engines": {
         "gitbook": ">=3.0.0"
     },
@@ -16,14 +16,21 @@
         "url": "https://github.com/liushilive/gitbook-plugin-books/issues"
     },
     "keywords": [
-        "prism",
-        "mermaid",
-        "plantuml",
-        "math",
-        "latex",
         "books",
         "gitbook",
-        "code"
+        "math",
+        "mermaid",
+        "plantuml",
+        "code",
+        "prism",
+        "公式",
+        "KaTeX",
+        "流程图",
+        "高亮",
+        "github",
+        "悬浮",
+        "sec",
+        "import"
     ],
     "gitbook": {
         "properties": {
