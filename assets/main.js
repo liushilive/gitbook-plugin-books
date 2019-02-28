@@ -1,4 +1,20 @@
 /**
+ * 搜索框加入
+ */
+function search_layouts() {
+    require(['gitbook', 'jQuery'], function (gitbook, $) {
+        var init = function () {
+            $('<div id="book-search-input" role="search"><input type="text" placeholder="Type to search" /></div>').prependTo(".book-summary");
+            $(".markdown-section").wrap('<div class="search-plus" id="book-search-results"><div class="search-noresults"></div></div>');
+            $('<div class="search-results"><div class="has-results"><h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1><ul class="search-results-list"></ul></div><div class="no-results"><h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1></div></div>').appendTo("#book-search-results");
+        };
+        gitbook.events.bind('page.change', function () {
+            init();
+        });
+    });
+}
+
+/**
  * 章节扩展
  */
 function ExpandableChapters() {
@@ -211,9 +227,11 @@ function splitter() {
                         hight: h
                     });
                 }
-                
+
                 $('.book-summary').scroll(
-                    function(){fixationTopHight()}
+                    function () {
+                        fixationTopHight();
+                    }
                 );
                 window.onscroll = fixationTopHight;
                 window.onresize = fixationTopHight;
@@ -250,10 +268,10 @@ function splitter() {
 
             function getSplitState() {
                 var splitState = JSON.parse(sessionStorage.getItem(KEY_SPLIT_STATE));
-                splitState || (splitState = {});
-                splitState.summaryWidth || (splitState.summaryWidth = $summary.outerWidth());
-                splitState.summaryOffset || (splitState.summaryOffset = $summary.position().left);
-                splitState.bookBodyOffset || (splitState.bookBodyOffset = $bookBody.position().left);
+                splitState = splitState || {};
+                splitState.summaryWidth = splitState.summaryWidth || $summary.outerWidth();
+                splitState.summaryOffset = splitState.summaryOffset || $summary.position().left;
+                splitState.bookBodyOffset = splitState.bookBodyOffset || $bookBody.position().left;
                 return splitState;
             }
 
@@ -680,6 +698,7 @@ function search() {
     });
 }
 
+search_layouts();
 ExpandableChapters();
 GitHubButtons();
 sectionx();
