@@ -70,7 +70,7 @@ function ExpandableChapters() {
             }
         };
         var lsItem = function () {
-            var map = JSON.parse(localStorage.getItem(LS_NAMESPACE)) || {};
+            var map = JSON.parse(sessionStorage.getItem(LS_NAMESPACE)) || {};
             if (arguments.length) {
                 var $chapters = arguments[0];
                 $chapters.each(function (index, element) {
@@ -78,7 +78,7 @@ function ExpandableChapters() {
                     var value = $(this).hasClass(TOGGLE_CLASSNAME);
                     map[level] = value;
                 });
-                localStorage.setItem(LS_NAMESPACE, JSON.stringify(map));
+                sessionStorage.setItem(LS_NAMESPACE, JSON.stringify(map));
             } else {
                 return $(CHAPTER).map(function (index, element) {
                     if (map[$(this).data('level')]) {
