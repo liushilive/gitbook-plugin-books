@@ -4,7 +4,7 @@
 function search_layouts() {
     require(['gitbook', 'jQuery'], function (gitbook, $) {
         var init = function () {
-            $('<div id="book-search-input" role="search"><input type="text" placeholder="Type to search" /></div>').prependTo(".book-summary");
+            $('<div id="book-search-input" role="search"><input type="text" placeholder="输入并搜索" /></div>').prependTo(".book-summary");
             $(".markdown-section").wrap('<div class="search-plus" id="book-search-results"><div class="search-noresults"></div></div>');
             $('<div class="search-results"><div class="has-results"><h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1><ul class="search-results-list"></ul></div><div class="no-results"><h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1></div></div>').appendTo("#book-search-results");
         };
@@ -682,7 +682,7 @@ function search() {
                     if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
                         url += '#' + hash[1];
                     }
-                    return urll;
+                    return url;
                 } else {
                     return url;
                 }
